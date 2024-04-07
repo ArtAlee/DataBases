@@ -33,24 +33,24 @@ CREATE TABLE Bookings(
 CREATE TABLE Employees(
     id_employee serial primary key,
     id_studio integer,
-    id_position integer,
     name VARCHAR(64) NOT NULL,
     phone integer,
     gender varchar(64),
     age integer,
+    position varchar(64),
+    foreign key (id_studio) references Studios(id_studio)
+);
+
+
+CREATE TABLE Portfolios(
+    id_portfolio serial primary key,
+    id_studio integer,
+    id_service integer,
+    name VARCHAR(64) NOT NULL,
+    phone integer,
+    gender varchar(64),
+    age integer,
+    position varchar(64),
     foreign key (id_studio) references Studios(id_studio),
-    foreign key (id_position) references Positions(id_position)
+    foreign key (id_service) references Services(id_service)
 );
-
-CREATE TABLE Positions(
-    id_position serial primary key,
-    name VARCHAR(64) not null,
-    salary integer,
-    description varchar(1024)
-);
-
-
-
-
-
-
